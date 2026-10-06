@@ -1,3 +1,4 @@
+
 import html
 import zlib
 
@@ -17,22 +18,38 @@ st.set_page_config(
 )
 
 CATEGORIES = {
-    "1": "Film & Animation", "2": "Autos", "10": "Music", "15": "Pets",
-    "17": "Sports", "19": "Travel", "20": "Gaming", "22": "People & Blogs",
-    "23": "Comedy", "24": "Entertainment", "25": "News", "26": "How-to",
-    "27": "Education", "28": "Science & Tech",
+    "1": "Film & Animation",
+    "2": "Autos",
+    "10": "Music",
+    "15": "Pets",
+    "17": "Sports",
+    "19": "Travel",
+    "20": "Gaming",
+    "22": "People & Blogs",
+    "23": "Comedy",
+    "24": "Entertainment",
+    "25": "News",
+    "26": "How-to",
+    "27": "Education",
+    "28": "Science & Tech",
 }
 
 AVATARS = [
-    "#c0392b", "#2874a6", "#1e8449", "#7d3c98",
-    "#b9770e", "#117a8b", "#34495e", "#a93226",
+    "#c0392b",
+    "#2874a6",
+    "#1e8449",
+    "#7d3c98",
+    "#b9770e",
+    "#117a8b",
+    "#34495e",
+    "#a93226",
 ]
 
 DEVELOPER = "Vadlakonda Achyuth Sai"
 
 
 # ============================================================
-# STYLING  (YouTube-style look)
+# STYLING
 # ============================================================
 
 st.markdown("""
@@ -61,9 +78,9 @@ st.markdown("""
     padding:.6rem 1.6rem 3rem;
 }
 
-header[data-testid="stHeader"]{ display:none; }
-
-/* ---------- Streamlit widgets ---------- */
+header[data-testid="stHeader"]{
+    display:none;
+}
 
 [data-testid="stWidgetLabel"] p{
     color:var(--ink);
@@ -71,7 +88,6 @@ header[data-testid="stHeader"]{ display:none; }
     font-size:.85rem;
 }
 
-/* search box: pill like YouTube */
 [data-testid="stTextInput"] input{
     border-radius:40px 0 0 40px;
     padding:.55rem 1.1rem;
@@ -118,7 +134,9 @@ header[data-testid="stHeader"]{ display:none; }
     color:var(--ink);
 }
 
-[data-testid="stPills"] button:hover{ background:var(--chip-hover); }
+[data-testid="stPills"] button:hover{
+    background:var(--chip-hover);
+}
 
 [data-testid="stPills"] button[aria-checked="true"],
 [data-testid="stPills"] button[aria-pressed="true"]{
@@ -127,9 +145,9 @@ header[data-testid="stHeader"]{ display:none; }
 }
 
 [data-testid="stVideo"] iframe,
-[data-testid="stVideo"] video{ border-radius:12px; }
-
-/* ---------- Header ---------- */
+[data-testid="stVideo"] video{
+    border-radius:12px;
+}
 
 .topbar{
     display:flex;
@@ -228,8 +246,6 @@ hr.navline{
     margin:.5rem -1.6rem 0;
 }
 
-/* ---------- Page heading ---------- */
-
 .page-title{
     font-size:1.6rem;
     font-weight:700;
@@ -243,8 +259,15 @@ hr.navline{
     padding-bottom:.9rem;
 }
 
-.statline b{ color:var(--ink); font-weight:500; }
-.statline i{ margin:0 .5rem; font-style:normal; }
+.statline b{
+    color:var(--ink);
+    font-weight:500;
+}
+
+.statline i{
+    margin:0 .5rem;
+    font-style:normal;
+}
 
 .sec{
     font-size:1.25rem;
@@ -257,8 +280,6 @@ hr.div{
     border-top:1px solid var(--line);
     margin:2rem -1.6rem 0;
 }
-
-/* ---------- Video grid (YouTube home style) ---------- */
 
 .grid{
     display:grid;
@@ -279,6 +300,7 @@ a.vc{
     background:#e5e5e5;
     border-radius:12px;
     overflow:hidden;
+    transition:border-radius .2s ease;
 }
 
 .thumb img{
@@ -289,9 +311,13 @@ a.vc{
     transition:transform .2s ease;
 }
 
-a.vc:hover .thumb{ border-radius:0; }
-a.vc:hover .thumb img{ transform:scale(1.02); }
-.thumb{ transition:border-radius .2s ease; }
+a.vc:hover .thumb{
+    border-radius:0;
+}
+
+a.vc:hover .thumb img{
+    transform:scale(1.02);
+}
 
 .badge{
     position:absolute;
@@ -306,7 +332,9 @@ a.vc:hover .thumb img{ transform:scale(1.02); }
     line-height:1.3;
 }
 
-.badge.top{ background:var(--red); }
+.badge.top{
+    background:var(--red);
+}
 
 .meta{
     display:flex;
@@ -344,9 +372,9 @@ a.vc:hover .thumb img{ transform:scale(1.02); }
     margin-top:3px;
 }
 
-.vc:hover .cc.ch{ color:var(--ink); }
-
-/* ---------- Watch page ---------- */
+.vc:hover .cc.ch{
+    color:var(--ink);
+}
 
 .wtitle{
     font-size:1.25rem;
@@ -362,8 +390,14 @@ a.vc:hover .thumb img{ transform:scale(1.02); }
     flex-wrap:wrap;
 }
 
-.wchan .nm{ font-weight:500; }
-.wchan .sb{ color:var(--sub); font-size:.8rem; }
+.wchan .nm{
+    font-weight:500;
+}
+
+.wchan .sb{
+    color:var(--sub);
+    font-size:.8rem;
+}
 
 .pills{
     margin-left:auto;
@@ -390,7 +424,9 @@ a.btn{
     font-size:.88rem;
 }
 
-a.btn:hover{ background:#272727; }
+a.btn:hover{
+    background:#272727;
+}
 
 .desc{
     background:var(--chip);
@@ -401,9 +437,9 @@ a.btn:hover{ background:#272727; }
     line-height:1.5;
 }
 
-.desc b{ font-weight:500; }
-
-/* ---------- Up next (YouTube sidebar) ---------- */
+.desc b{
+    font-weight:500;
+}
 
 .upnext-title{
     font-size:1.05rem;
@@ -423,7 +459,9 @@ a.btn:hover{ background:#272727; }
     border-radius:8px;
 }
 
-.row .ct{ font-size:.92rem; }
+.row .ct{
+    font-size:.92rem;
+}
 
 .match{
     color:var(--green);
@@ -440,7 +478,10 @@ a.btn:hover{ background:#272727; }
     line-height:1.7;
 }
 
-.footer b{ color:var(--ink); font-weight:500; }
+.footer b{
+    color:var(--ink);
+    font-weight:500;
+}
 
 :focus-visible{
     outline:2px solid var(--blue);
@@ -448,13 +489,24 @@ a.btn:hover{ background:#272727; }
 }
 
 @media (max-width:900px){
-    .block-container{ padding:.6rem 1rem 2rem; }
-    .dev .who{ display:none; }
-    .pills{ margin-left:0; }
+    .block-container{
+        padding:.6rem 1rem 2rem;
+    }
+
+    .dev .who{
+        display:none;
+    }
+
+    .pills{
+        margin-left:0;
+    }
 }
 
 @media (prefers-reduced-motion:reduce){
-    .thumb, .thumb img{ transition:none; }
+    .thumb,
+    .thumb img{
+        transition:none;
+    }
 }
 </style>
 """, unsafe_allow_html=True)
@@ -490,7 +542,11 @@ def compact(n):
     except Exception:
         return "0"
 
-    for div, suffix in ((1e9, "B"), (1e6, "M"), (1e3, "K")):
+    for div, suffix in (
+        (1e9, "B"),
+        (1e6, "M"),
+        (1e3, "K")
+    ):
         if n >= div:
             return f"{n / div:.1f}{suffix}".replace(".0", "")
 
@@ -522,8 +578,14 @@ def thumb(src, badge="", badge_class="", chip=""):
 
 
 def avatar(channel, small=False):
-    name = str(channel if pd.notna(channel) else "?").strip() or "?"
-    color = AVATARS[zlib.crc32(name.encode()) % len(AVATARS)]
+    name = str(
+        channel if pd.notna(channel) else "?"
+    ).strip() or "?"
+
+    color = AVATARS[
+        zlib.crc32(name.encode()) % len(AVATARS)
+    ]
+
     size = " sm" if small else ""
 
     return (
@@ -539,12 +601,22 @@ def avatar(channel, small=False):
 
 @st.cache_resource(ttl=3600)
 def get_connection():
-    return psycopg2.connect(st.secrets["DATABASE_URL"])
+    return psycopg2.connect(
+        host=st.secrets["neon"]["host"],
+        database=st.secrets["neon"]["database"],
+        user=st.secrets["neon"]["user"],
+        password=st.secrets["neon"]["password"],
+        port=st.secrets["neon"]["port"],
+        sslmode="require"
+    )
 
 
 def _execute(conn, query, params=None):
     with conn.cursor() as cur:
-        cur.execute(query, params if params else ())
+        cur.execute(
+            query,
+            params if params else ()
+        )
 
         if cur.description is None:
             return pd.DataFrame()
@@ -562,14 +634,18 @@ def run_query(query, params=None):
         return _execute(conn, query, params)
 
     except Exception:
-        # Reconnect if the cached connection expired or was closed.
         try:
             conn.close()
         except Exception:
             pass
 
         get_connection.clear()
-        return _execute(get_connection(), query, params)
+
+        return _execute(
+            get_connection(),
+            query,
+            params
+        )
 
 
 # ============================================================
@@ -607,19 +683,31 @@ def load_trending():
             FROM trending_videos
 
             WHERE collection_date = (
-                SELECT max_date FROM latest_date
+                SELECT max_date
+                FROM latest_date
             )
         )
 
         SELECT
-            video_id, title, channel_name, category_id,
-            view_count, like_count, comment_count,
-            thumbnail_url, video_url,
-            collection_date, collected_at, rank
+            video_id,
+            title,
+            channel_name,
+            category_id,
+            view_count,
+            like_count,
+            comment_count,
+            thumbnail_url,
+            video_url,
+            collection_date,
+            collected_at,
+            rank
 
         FROM latest_videos
+
         WHERE video_rn = 1
+
         ORDER BY view_count DESC
+
         LIMIT 100
     """)
 
@@ -632,7 +720,9 @@ def load_recommendations():
             recommended_video_id,
             similarity_score,
             rank
+
         FROM video_recommendations
+
         ORDER BY video_id, rank
     """)
 
@@ -646,7 +736,9 @@ def load_video_catalog():
             channel_name,
             category_id,
             thumbnail_url
+
         FROM trending_videos
+
         ORDER BY
             video_id,
             collection_date DESC,
@@ -655,11 +747,12 @@ def load_video_catalog():
 
 
 # ============================================================
-# HEADER (search | developer | refresh)
+# HEADER
 # ============================================================
 
 search_col, dev_col, refresh_col = st.columns(
-    [4, 2.4, 1.2], vertical_alignment="center"
+    [4, 2.4, 1.2],
+    vertical_alignment="center"
 )
 
 with search_col:
@@ -672,14 +765,19 @@ with search_col:
 with dev_col:
     h(
         '<div class="dev">'
-        '<div class="who"><small>Developed by</small>'
-        f'<b>{DEVELOPER}</b></div>'
+        '<div class="who">'
+        '<small>Developed by</small>'
+        f'<b>{DEVELOPER}</b>'
+        '</div>'
         '<div class="me">VA</div>'
         '</div>'
     )
 
 with refresh_col:
-    if st.button("Refresh", width="stretch"):
+    if st.button(
+        "Refresh",
+        width="stretch"
+    ):
         st.cache_data.clear()
         st.rerun()
 
@@ -692,26 +790,58 @@ h('<hr class="navline">')
 
 try:
     trending = load_trending()
+
 except Exception as e:
-    st.error("Could not connect to the Neon PostgreSQL database.")
+    st.error(
+        "Could not connect to the Neon PostgreSQL database."
+    )
+
     st.code(str(e))
+
     st.stop()
+
 
 if trending.empty:
-    st.warning("No trending videos are available yet. Run the data pipeline and refresh.")
+    st.warning(
+        "No trending videos are available yet. "
+        "Run the data pipeline and refresh."
+    )
+
     st.stop()
 
-for col in ("view_count", "like_count", "comment_count"):
-    trending[col] = pd.to_numeric(trending[col], errors="coerce").fillna(0)
+
+for col in (
+    "view_count",
+    "like_count",
+    "comment_count"
+):
+    trending[col] = pd.to_numeric(
+        trending[col],
+        errors="coerce"
+    ).fillna(0)
+
 
 trending["category"] = (
-    trending["category_id"].astype(str).map(CATEGORIES).fillna("Other")
+    trending["category_id"]
+    .astype(str)
+    .map(CATEGORIES)
+    .fillna("Other")
 )
 
+
 try:
-    updated = pd.to_datetime(trending["collected_at"]).max().strftime("%d %b %Y, %H:%M")
+    updated = (
+        pd.to_datetime(
+            trending["collected_at"]
+        )
+        .max()
+        .strftime("%d %b %Y, %H:%M")
+    )
+
 except Exception:
-    updated = str(trending["collected_at"].max())[:16]
+    updated = str(
+        trending["collected_at"].max()
+    )[:16]
 
 
 # ============================================================
@@ -720,6 +850,7 @@ except Exception:
 
 h(f"""
 <div class="page-title">Top Trending Videos</div>
+
 <div class="statline">
     <b>{trending["video_id"].nunique():,}</b> videos
     <i>•</i>
@@ -738,17 +869,45 @@ h(f"""
 # CATEGORY CHIPS
 # ============================================================
 
-options = ["All"] + trending["category"].value_counts().index.tolist()
+options = (
+    ["All"]
+    + trending["category"]
+    .value_counts()
+    .index
+    .tolist()
+)
 
 choice = st.pills(
-    "Category", options, default="All", label_visibility="collapsed"
+    "Category",
+    options,
+    default="All",
+    label_visibility="collapsed"
 ) or "All"
 
-shown = trending if choice == "All" else trending[trending["category"] == choice]
+
+shown = (
+    trending
+    if choice == "All"
+    else trending[
+        trending["category"] == choice
+    ]
+)
+
 
 if query:
-    hay = shown["title"].fillna("") + " " + shown["channel_name"].fillna("")
-    shown = shown[hay.str.contains(query, case=False, regex=False)]
+    hay = (
+        shown["title"].fillna("")
+        + " "
+        + shown["channel_name"].fillna("")
+    )
+
+    shown = shown[
+        hay.str.contains(
+            query,
+            case=False,
+            regex=False
+        )
+    ]
 
 
 # ============================================================
@@ -756,53 +915,117 @@ if query:
 # ============================================================
 
 if shown.empty:
-    st.info("No trending videos match your search or category. Try a different keyword.")
+
+    st.info(
+        "No trending videos match your search "
+        "or category. Try a different keyword."
+    )
 
 else:
+
     cards = ""
 
-    for rank, v in enumerate(shown.head(12).itertuples(index=False), start=1):
+    for rank, v in enumerate(
+        shown.head(12).itertuples(index=False),
+        start=1
+    ):
+
         row = v._asdict()
 
         cards += f"""
-        <a class="vc" href="{url(row['video_id'])}" target="_blank" rel="noopener">
-            {thumb(row['thumbnail_url'], f'#{rank}', 'top' if rank <= 3 else '')}
+        <a class="vc"
+           href="{url(row['video_id'])}"
+           target="_blank"
+           rel="noopener">
+
+            {thumb(
+                row['thumbnail_url'],
+                f'#{rank}',
+                'top' if rank <= 3 else ''
+            )}
+
             <div class="meta">
+
                 {avatar(row['channel_name'])}
+
                 <div>
-                    <div class="ct">{esc(row['title'], 100)}</div>
-                    <div class="cc ch">{esc(row['channel_name'])}</div>
-                    <div class="cc">{compact(row['view_count'])} views • {compact(row['like_count'])} likes • {esc(row['category'])}</div>
+
+                    <div class="ct">
+                        {esc(row['title'], 100)}
+                    </div>
+
+                    <div class="cc ch">
+                        {esc(row['channel_name'])}
+                    </div>
+
+                    <div class="cc">
+                        {compact(row['view_count'])} views
+                        •
+                        {compact(row['like_count'])} likes
+                        •
+                        {esc(row['category'])}
+                    </div>
+
                 </div>
+
             </div>
+
         </a>
         """
 
-    h(f'<div class="grid">{cards}</div>')
+    h(
+        f'<div class="grid">{cards}</div>'
+    )
 
 
 # ============================================================
 # WATCH + RECOMMENDATIONS
 # ============================================================
 
-h('<hr class="div"><div class="sec">Watch and discover</div>')
+h(
+    '<hr class="div">'
+    '<div class="sec">Watch and discover</div>'
+)
+
 
 try:
+
     rec_links = load_recommendations()
     catalog = load_video_catalog()
+
 except Exception as e:
+
     rec_links = pd.DataFrame()
     catalog = pd.DataFrame()
-    st.warning("Recommendation data could not be loaded.")
+
+    st.warning(
+        "Recommendation data could not be loaded."
+    )
+
     st.code(str(e))
 
+
 if rec_links.empty or catalog.empty:
-    st.info("No recommendation data available yet.")
+
+    st.info(
+        "No recommendation data available yet."
+    )
 
 else:
-    rec_links["video_id"] = rec_links["video_id"].astype(str)
-    rec_links["recommended_video_id"] = rec_links["recommended_video_id"].astype(str)
-    catalog["video_id"] = catalog["video_id"].astype(str)
+
+    rec_links["video_id"] = (
+        rec_links["video_id"].astype(str)
+    )
+
+    rec_links["recommended_video_id"] = (
+        rec_links["recommended_video_id"]
+        .astype(str)
+    )
+
+    catalog["video_id"] = (
+        catalog["video_id"].astype(str)
+    )
+
 
     rec_links = rec_links.merge(
         catalog.add_prefix("rec_"),
@@ -811,89 +1034,258 @@ else:
         how="left"
     )
 
-    haystack = catalog["title"].fillna("") + " " + catalog["channel_name"].fillna("")
+
+    haystack = (
+        catalog["title"].fillna("")
+        + " "
+        + catalog["channel_name"].fillna("")
+    )
+
 
     matches = (
-        catalog[haystack.str.contains(query, case=False, regex=False)]
-        if query else catalog
+        catalog[
+            haystack.str.contains(
+                query,
+                case=False,
+                regex=False
+            )
+        ]
+        if query
+        else catalog
     ).head(100)
 
+
     if matches.empty:
-        st.warning("No videos match that search. Try a shorter word or a channel name.")
+
+        st.warning(
+            "No videos match that search. "
+            "Try a shorter word or a channel name."
+        )
 
     else:
+
         labels = {
-            r.video_id: f"{str(r.title)[:90]} - {r.channel_name}"
+            r.video_id:
+                f"{str(r.title)[:90]} - {r.channel_name}"
             for r in matches.itertuples()
         }
 
+
         chosen = st.selectbox(
-            "Choose a video to watch" + (f" (results for “{query}”)" if query else ""),
+            "Choose a video to watch"
+            + (
+                f" (results for “{query}”)"
+                if query
+                else ""
+            ),
+
             list(labels),
+
             format_func=labels.get
         )
 
-        sel = catalog[catalog["video_id"] == chosen].iloc[0]
-        category = CATEGORIES.get(str(sel["category_id"]), "Other")
 
-        stats = trending[trending["video_id"].astype(str) == chosen]
+        sel = catalog[
+            catalog["video_id"] == chosen
+        ].iloc[0]
+
+
+        category = CATEGORIES.get(
+            str(sel["category_id"]),
+            "Other"
+        )
+
+
+        stats = trending[
+            trending["video_id"].astype(str)
+            == chosen
+        ]
+
+
         pills = ""
+
+
         if not stats.empty:
+
             s = stats.iloc[0]
+
             pills = (
-                f'<div class="pill">👍 {compact(s["like_count"])}</div>'
-                f'<div class="pill">💬 {compact(s["comment_count"])}</div>'
-                f'<div class="pill">👁 {compact(s["view_count"])} views</div>'
+                f'<div class="pill">'
+                f'👍 {compact(s["like_count"])}'
+                f'</div>'
+
+                f'<div class="pill">'
+                f'💬 {compact(s["comment_count"])}'
+                f'</div>'
+
+                f'<div class="pill">'
+                f'👁 {compact(s["view_count"])} views'
+                f'</div>'
             )
 
-        recs = rec_links[rec_links["video_id"] == chosen].copy()
-        if not recs.empty:
-            recs = recs.sort_values("rank", ascending=True).head(8)
 
-        main_col, side_col = st.columns([2.3, 1], gap="large")
+        recs = rec_links[
+            rec_links["video_id"] == chosen
+        ].copy()
+
+
+        if not recs.empty:
+
+            recs = (
+                recs
+                .sort_values(
+                    "rank",
+                    ascending=True
+                )
+                .head(8)
+            )
+
+
+        main_col, side_col = st.columns(
+            [2.3, 1],
+            gap="large"
+        )
+
+
+        # ====================================================
+        # MAIN VIDEO
+        # ====================================================
 
         with main_col:
-            st.video(url(chosen))
+
+            st.video(
+                url(chosen)
+            )
+
 
             h(f"""
-            <div class="wtitle">{esc(sel['title'], 150)}</div>
+            <div class="wtitle">
+                {esc(sel['title'], 150)}
+            </div>
+
             <div class="wchan">
+
                 {avatar(sel['channel_name'])}
+
                 <div>
-                    <div class="nm">{esc(sel['channel_name'])}</div>
-                    <div class="sb">{html.escape(category)}</div>
+
+                    <div class="nm">
+                        {esc(sel['channel_name'])}
+                    </div>
+
+                    <div class="sb">
+                        {html.escape(category)}
+                    </div>
+
                 </div>
+
                 <div class="pills">
+
                     {pills}
-                    <a class="btn" href="{url(chosen)}" target="_blank" rel="noopener">Watch on YouTube</a>
+
+                    <a class="btn"
+                       href="{url(chosen)}"
+                       target="_blank"
+                       rel="noopener">
+
+                       Watch on YouTube
+
+                    </a>
+
                 </div>
+
             </div>
             """)
 
+
+        # ====================================================
+        # UP NEXT
+        # ====================================================
+
         with side_col:
-            h('<div class="upnext-title">Up next</div>')
+
+            h(
+                '<div class="upnext-title">'
+                'Up next'
+                '</div>'
+            )
+
 
             if recs.empty:
-                st.info("No recommendations found for this video.")
+
+                st.info(
+                    "No recommendations found "
+                    "for this video."
+                )
 
             else:
+
                 rows = ""
 
+
                 for _, r in recs.iterrows():
-                    similarity = pd.to_numeric(r.get("similarity_score"), errors="coerce")
-                    similarity = 0 if pd.isna(similarity) else similarity
-                    similarity = max(0.0, min(float(similarity), 1.0))
+
+                    similarity = pd.to_numeric(
+                        r.get("similarity_score"),
+                        errors="coerce"
+                    )
+
+
+                    similarity = (
+                        0
+                        if pd.isna(similarity)
+                        else similarity
+                    )
+
+
+                    similarity = max(
+                        0.0,
+                        min(
+                            float(similarity),
+                            1.0
+                        )
+                    )
+
 
                     rows += f"""
-                    <a class="vc row" href="{url(r['recommended_video_id'])}" target="_blank" rel="noopener">
-                        {thumb(r.get("rec_thumbnail_url"))}
+                    <a class="vc row"
+                       href="{url(r['recommended_video_id'])}"
+                       target="_blank"
+                       rel="noopener">
+
+                        {thumb(
+                            r.get("rec_thumbnail_url")
+                        )}
+
                         <div>
-                            <div class="ct">{esc(r.get("rec_title", ""), 80)}</div>
-                            <div class="cc ch">{esc(r.get("rec_channel_name", ""))}</div>
-                            <div class="cc"><span class="match">{similarity:.0%} match</span></div>
+
+                            <div class="ct">
+                                {esc(
+                                    r.get("rec_title", ""),
+                                    80
+                                )}
+                            </div>
+
+                            <div class="cc ch">
+                                {esc(
+                                    r.get(
+                                        "rec_channel_name",
+                                        ""
+                                    )
+                                )}
+                            </div>
+
+                            <div class="cc">
+                                <span class="match">
+                                    {similarity:.0%} match
+                                </span>
+                            </div>
+
                         </div>
+
                     </a>
                     """
+
 
                 h(rows)
 
@@ -904,7 +1296,9 @@ else:
 
 h(
     '<div class="footer">'
-    f'Designed and developed by <b>{DEVELOPER}</b><br>'
-    'Built with Kafka, Databricks, PySpark, SBERT, PostgreSQL and Streamlit.'
+    f'Designed and developed by '
+    f'<b>{DEVELOPER}</b><br>'
+    'Built with Kafka, Databricks, PySpark, SBERT, '
+    'PostgreSQL and Streamlit.'
     '</div>'
 )
