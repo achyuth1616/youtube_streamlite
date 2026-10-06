@@ -600,16 +600,16 @@ def avatar(channel, small=False):
 # ============================================================
 
 @st.cache_resource(ttl=3600)
+@st.cache_resource(ttl=3600)
 def get_connection():
     return psycopg2.connect(
         host=st.secrets["neon"]["host"],
         database=st.secrets["neon"]["database"],
         user=st.secrets["neon"]["user"],
         password=st.secrets["neon"]["password"],
-        port=st.secrets["neon"]["port"],
+        port=5432,
         sslmode="require"
     )
-
 
 def _execute(conn, query, params=None):
     with conn.cursor() as cur:
